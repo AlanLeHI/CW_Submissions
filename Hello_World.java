@@ -4,9 +4,9 @@ public class Hello_World {
 
 	public static void main(String[] args) {
 		//Task 1: Print out "Hello World"
-		System.out.println("Hello World");
-		//Task 2: Print out Hello World on another line and again on another line
 		System.out.print("Hello World");
+		//Task 2: Print out Hello World on another line and again on another line
+		System.out.println("Hello World");
 		System.out.println("Hello World");
 	}
 	
