@@ -6,8 +6,8 @@ public class Hello_World {
 		//Task 1: Print out "Hello World"
 		System.out.print("Hello World");
 		//Task 2: Print out Hello World then print it again on on another line
-		System.out.print("Hello World");
 		System.out.println("Hello World");
+		System.out.print("Hello World");
 	}
 	
 
