@@ -19,7 +19,7 @@ System.out.println(((6.0*3.5)-(1.5*5))/ (55.6 - 30.2));
 
 //Task 3: Write adaptable code that will print out the circumference and area of a circle that has a radius of 4.0. (Hint: the value of pi is 3.1519 and it never changes)
 
-final double pi = 3.14159;
+final double pi = 3.1519;
 double rad = 4.0;
 double circ = (2.0 * pi * rad);
 double area = (pi* (rad * rad));
