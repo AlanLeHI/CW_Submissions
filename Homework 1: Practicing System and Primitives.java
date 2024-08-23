@@ -23,7 +23,7 @@ final double pi = 3.14159;
 double rad = 4.0;
 double circ = (2.0 * pi * rad);
 double area = (pi* (rad * rad));
-System.out.print("The circumference is " + circ + " and the area is " + area + ".");
+System.out.println("The circumference is " + circ + " and the area is " + area + ".");
 	}
 
 }
