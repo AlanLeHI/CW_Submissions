@@ -5,7 +5,7 @@ public class Nonvoid_Intro {
         System.out.println(stateHairStyle());
         System.out.println(stateFavoriteFood());
         System.out.println(printCircleStats(6));
-        printMathStuffs(5,8);
+        System.out.print(printMathStuffs(5,8));
     }
     /*1. Create a nonvoid method called stateName() that returns your name. Repeat this task for stateEyeColor(), stateHairStyle(),
      stateBestFriend(), and stateFavoriteFood(). Then, call stateName(), stateHairStyle, and stateFavoriteFood(). Use the calls to 
