@@ -57,6 +57,6 @@ public class Nonvoid_Intro {
 		int rem = intone%inttwo;
 		int prod = intone*inttwo;
 		return ("The sum is " + sum + " the difference is " + dif + 
-				" the quotient is " + quo + " the remainder is " + rem + "and the product is " +prod);
+				" the quotient is " + quo + " the remainder is " + rem + " and the product is " +prod);
     }
 }
