@@ -1,0 +1,25 @@
+//helloName
+
+public String helloName(String name) {
+  return ("Hello "  + name + "!");
+}
+
+
+//makeABBA
+
+public String makeAbba(String a, String b) {
+  return (a + b + b + a);
+}
+
+//makeTags
+
+public String makeTags(String tag, String word) {
+  return ("<" + tag + ">" + word + "<" + "/" + tag + ">");
+}
+
+//makeOutWord
+public String makeOutWord(String out, String word) {
+  String miniString = new String(out.substring(0,2));
+  String miniString2 = new String(out.substring(2, 4));
+  return (miniString + word + miniString2);
+}
