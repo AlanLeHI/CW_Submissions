@@ -1,7 +1,7 @@
 import java.util.Scanner;
-public class Main {
+public class StringIntros {
 	
-	public static void StringIntros(String[] args) {
+	public static void Main(String[] args) {
 		// TODO Auto-generated method stub
 		//Creates a new scanner object called myReader
 		Scanner myReader = new Scanner(System.in);
