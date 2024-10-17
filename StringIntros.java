@@ -1,7 +1,7 @@
 import java.util.Scanner;
-public class StringIntros {
+public class Main {
 	
-	public static void Main(String[] args) {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Creates a new scanner object called myReader
 		Scanner myReader = new Scanner(System.in);
@@ -17,10 +17,10 @@ public class StringIntros {
 		secondAndLastLetter(myInput);
 		
 		//Prints the index of the first 'e'
-		System.out.println(findTheE(myInput));
+		System.out.println("The index of this first e is " + findTheE(myInput));
 		
 		//Prints out the word's length
-		System.out.println(getLength(myInput));
+		System.out.println("The word is " + getLength( myInput ) + " letters long");
 		
 		//Prints out the last three letters
 		printFirstAndLastThree(myInput);
@@ -38,14 +38,14 @@ public class StringIntros {
 		//finds the last letter
 		char char2 = temp.charAt(wordLength-1);
 		//prints out the second and last letter
-		System.out.println(char1 + " " + char2);
+		System.out.println("The second and last characters are " + char1 + " and " + char2);
 		
 	}
 	
 	/**
 	 * This method finds the first "e" of the word and returns its index
-	 * @param temp
-	 * @return
+	 * @param temp is the String being passed
+	 * @return 
 	 */
 	public static int findTheE(String temp)
 	{
@@ -65,13 +65,17 @@ public class StringIntros {
 		//returns length
 		return wordLength;
 	}
-	
+	/**
+	*Finds the first and last three words of a string
+	*/
 	public static void printFirstAndLastThree(String temp)
 	{
 		//finds the word length
 		int wordLength = temp.length();
-		//returns the last 3 letters of the input
-		System.out.println(temp.substring(wordLength-3, wordLength));
+		//prints the first three letters
+		System.out.println("The first three letters are " + temp.substring(0,3));
+		//prints the last 3 letters of the input
+		System.out.println("The last three letters are " + temp.substring(wordLength-3, wordLength));
 	}
 	
 }
