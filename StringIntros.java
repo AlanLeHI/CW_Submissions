@@ -27,7 +27,7 @@ public class Main {
 	}
 	/**
 	 * This method prints out the second and last letter of a string
-	 * @param temp
+	 * @param temp the string is passed
 	 */
 	public static void secondAndLastLetter(String temp)
 	{
@@ -45,7 +45,7 @@ public class Main {
 	/**
 	 * This method finds the first "e" of the word and returns its index
 	 * @param temp is the String being passed
-	 * @return 
+	 * @return the index of e
 	 */
 	public static int findTheE(String temp)
 	{
@@ -55,8 +55,8 @@ public class Main {
 
 	/**
 	 * This method returns the word length
-	 * @param temp
-	 * @return
+	 * @param temp the string is passed
+	 * @return the word length
 	 */
 	public static int getLength(String temp)
 	{
@@ -66,8 +66,8 @@ public class Main {
 		return wordLength;
 	}
 	/**
-	*Finds the first and last three words of a string
-	*/
+	 * @param temp the string is passed
+	 */
 	public static void printFirstAndLastThree(String temp)
 	{
 		//finds the word length
