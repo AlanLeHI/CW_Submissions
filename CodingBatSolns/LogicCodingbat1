@@ -108,7 +108,8 @@ public int caughtSpeeding(int speed, boolean isBirthday) {
       return 2;
     }
   }
-return 2;
+//I have no idea why this works it just does and won't work without it
+return 1000000;
 }
 
 
