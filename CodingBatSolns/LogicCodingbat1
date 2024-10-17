@@ -1,4 +1,4 @@
-//CigarParty
+//cigarParty
 public boolean cigarParty(int cigars, boolean isWeekend) {
   if (isWeekend == true)
   {
@@ -23,7 +23,7 @@ public boolean cigarParty(int cigars, boolean isWeekend) {
 return false;
 }
 
-//DateFashion
+//dateFashion
 public int dateFashion(int you, int date) {
   
   if (you < 3)
@@ -49,6 +49,7 @@ public int dateFashion(int you, int date) {
   }
 }
 
+//squirrelPlay
 public boolean squirrelPlay(int temp, boolean isSummer) {
   if (isSummer == true)
   {
@@ -76,7 +77,7 @@ public boolean squirrelPlay(int temp, boolean isSummer) {
   }
 }
 
-//ticket
+//caughtSpeeding
 public int caughtSpeeding(int speed, boolean isBirthday) {
   if (isBirthday == false)
   {
