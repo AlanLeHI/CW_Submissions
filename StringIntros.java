@@ -1,81 +1,138 @@
 import java.util.Scanner;
-public class Main {
-	
+public class main {
+
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		//Creates a new scanner object called myReader
-		Scanner myReader = new Scanner(System.in);
 		
-		//Uses the myInput Scanner object to get a string directly from the user and 
-		//stops when they add a space
-		String myInput = new String(myReader.next());
+		//determine what the answer should be, coder gets to decide this LOWERCASE ONLY
+		String soln = new String ("brick" + "crass" + "crack" + "flame" + "guess" + "grass" + "tries");
+		int randomWord = ((int) ((Math.random())* 6)) * 5;
+		String keyWord = soln.substring(randomWord, randomWord + 5);
+		System.out.print("Welcome to Wordle! ");
+		
+		//run the game
+		playGame(keyWord);
+		
 
-		//closes the scanner
-		myReader.close();
-		
-		//Prints the second and last letter
-		secondAndLastLetter(myInput);
-		
-		//Prints the index of the first 'e'
-		System.out.println("The index of this first e is " + findTheE(myInput));
-		
-		//Prints out the word's length
-		System.out.println("The word is " + getLength( myInput ) + " letters long");
-		
-		//Prints out the last three letters
-		printFirstAndLastThree(myInput);
 	}
 	/**
-	 * This method prints out the second and last letter of a string
-	 * @param temp the string is passed
+	 * You decide how to comment this!
+	 * 
+	 * @param soln is the right answer
 	 */
-	public static void secondAndLastLetter(String temp)
-	{
-		//finds the word length
-		int wordLength = temp.length();
-		//finds the second letter
-		char char1 = temp.charAt(1);
-		//finds the last letter
-		char char2 = temp.charAt(wordLength-1);
-		//prints out the second and last letter
-		System.out.println("The second and last characters are " + char1 + " and " + char2);
-		
-	}
 	
-	/**
-	 * This method finds the first "e" of the word and returns its index
-	 * @param temp is the String being passed
-	 * @return the index of e
-	 */
-	public static int findTheE(String temp)
-	{
-		//returns the index of the first lower case 'e'
-		return temp.indexOf('e');
+	private static void playGame(String keyWord) {
+		
+		//create a scanner object that is constructed to read the console (aka System.in)
+		Scanner gameReader = new Scanner (System.in);
+		
+		//prompt and allow user to give an input, set a String equal to it (it is the guess)
+		System.out.println("Make a guess (lowercase with 5 letters please): ");
+		String playerGuess = new String (gameReader.next());
+		
+		if (playerGuess.length() < 5)
+		{
+			System.out.println("Your word is not 5 letters. Learn how to read");
+			playGame(keyWord);
+		}
+		
+		if (keyWord.charAt(0) == playerGuess.charAt(0))
+		{
+			System.out.print(keyWord.charAt(0));
+		}
+		else if (keyWord.indexOf(playerGuess.charAt(0)) > -1)
+		{
+			System.out.print("?");
+		}
+		else 
+		{
+			System.out.print("X");
+		}
+		
+		
+		
+		if (keyWord.charAt(1) == playerGuess.charAt(1))
+		{
+			System.out.print(keyWord.charAt(1));
+		}
+		else if (keyWord.indexOf(playerGuess.charAt(1)) > -1)
+		{
+			System.out.print("?");
+		}
+		else 
+		{
+			System.out.print("X");
+		}
+		
+		
+		
+		if (keyWord.charAt(2) == playerGuess.charAt(2))
+		{
+			System.out.print(keyWord.charAt(2));
+		}
+		else if (keyWord.indexOf(playerGuess.charAt(2)) > -1)
+		{
+			System.out.print("?");
+		}
+		else 
+		{
+			System.out.print("X");
+		}
+		
+		
+		
+		if (keyWord.charAt(3) == playerGuess.charAt(3))
+		{
+			System.out.print(keyWord.charAt(3));
+		}
+		else if (keyWord.indexOf(playerGuess.charAt(3)) > -1)
+		{
+			System.out.print("?");
+		}
+		else 
+		{
+			System.out.print("X");
+		}
+		
+		
+		
+		if (keyWord.charAt(4) == playerGuess.charAt(4))
+		{
+			System.out.println(keyWord.charAt(4));
+		}
+		else if (keyWord.indexOf(playerGuess.charAt(4)) > -1)
+		{
+			System.out.print("?");
+		}
+		else 
+		{
+			System.out.println("X");
+		}
+		
+		
+		
+		
+  	/*
+		 * This is where all the code you write should be. You can write it all
+		 * in here or you can write separate methods to accomplish the task.
+		 * My only suggestion is to make methods that cheack each letter individially
+		 * and prints out the letter, an X or a ? respectively. 
+		 */
+		
+		
+		 if (!(playerGuess.equals(keyWord)))
+		{
+			//prompt user to guess again because they were wrong
+			 System.out.println("You suck");
+			 playGame(keyWord);
+		}
+		 
+		 else  /* if you are here, that means the user guessed it correctly */
+		{
+			//print out success message
+			System.out.println("Congrats! You successfully guessed that the word was " + keyWord + ".");
+			gameReader.close();
+		}
+		
 	}
 
-	/**
-	 * This method returns the word length
-	 * @param temp the string is passed
-	 * @return the word length
-	 */
-	public static int getLength(String temp)
-	{
-		//finds the word length
-		int wordLength = temp.length();
-		//returns length
-		return wordLength;
-	}
-	/**
-	 * @param temp the string is passed
-	 */
-	public static void printFirstAndLastThree(String temp)
-	{
-		//finds the word length
-		int wordLength = temp.length();
-		//prints the first three letters
-		System.out.println("The first three letters are " + temp.substring(0,3));
-		//prints the last 3 letters of the input
-		System.out.println("The last three letters are " + temp.substring(wordLength-3, wordLength));
-	}
-	
 }
