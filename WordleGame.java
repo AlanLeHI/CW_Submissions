@@ -31,14 +31,16 @@ public class main {
 		//prompt and allow user to give an input, set a String equal to it (it is the guess)
 		System.out.println("Make a guess (lowercase with 5 letters please): ");
 		String playerGuess = new String(gameReader.next());
-		
+		//disallows messages that are too short or long
 		if (playerGuess.length() < 5 || playerGuess.length() > 5)
 		{
 			System.out.println("Your word is not 5 letters. Learn how to read");
+			//restarts the game
 			playGame(keyWord);
 		}
 		else
 		{
+			//runs the game
 			runGame(keyWord, playerGuess);
 		}
 	}
