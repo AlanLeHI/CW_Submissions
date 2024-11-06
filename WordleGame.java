@@ -4,7 +4,7 @@ public class main {
 	static Scanner gameReader = new Scanner (System.in);
 	public static void main(String[] args) {
 		//random word generator
-		String soln = new String ("mamma");
+		String soln = new String ("brick" + "crass" + "crack" + "flame" + "guess" + "grass" + "tries" + "track");
 		//picks a random word by cutting out one word from the string
 		int randomWord = ((int) ((Math.random())* (soln.length())/5)) * 5;
 		//picks that word as a "keyWord" or solution
