@@ -4,9 +4,9 @@ public class main {
 	static Scanner gameReader = new Scanner (System.in);
 	public static void main(String[] args) {
 		//random word generator
-		String soln = new String ("brick" + "crass" + "crack" + "flame" + "guess" + "grass" + "tries" + "track");
+		String soln = new String ("mamma");
 		//picks a random word by cutting out one word from the string
-		int randomWord = ((int) ((Math.random())* ((soln.length())/5)+1) ) * 5;
+		int randomWord = ((int) ((Math.random())* (soln.length())/5)) * 5;
 		//picks that word as a "keyWord" or solution
 		String keyWord = soln.substring(randomWord, randomWord + 5);
 		
@@ -41,7 +41,7 @@ public class main {
 		{
 			runGame(keyWord, playerGuess);
 		}
-		}
+	}
 	/**
 	 * This code checks if the letters of the guessed word matches the actual letters of the keyword
 	 * If it does it prints the letter
@@ -53,9 +53,11 @@ public class main {
 	public static void runGame(String keyWord,  String playerGuess)
 	{
 		//printed word that will print at the end
-		String printedWord = "";
+		String printedWord = "XXXXX";
 		//tempWord will be used to check if letters are repeated
 		String tempWord =  "";
+		String tempKey = keyWord;
+		System.out.println(keyWord + "\nTEsting");
 		/*
 		 * will repeat a whole bunch of times for each letter but the short of it is that it checks if the letter
 		 * matches the player guess and prints that letter if it do. If it exists, it'll return a ? unless it is already in temp word.
@@ -65,90 +67,74 @@ public class main {
 		if (keyWord.charAt(0) == playerGuess.charAt(0))
 		{
 			//if correct adds letter to printedWord
-			printedWord = printedWord + keyWord.charAt(0);
+			printedWord = keyWord.charAt(0) + printedWord.substring(1, 5);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(0))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(0)) + 1, tempKey.length());	
+			
 		}
-		//checks if the solution has the letter and that it doesn't exist in tempWord
-		else if ((keyWord.indexOf(playerGuess.charAt(0)) > -1) && ((tempWord.indexOf(playerGuess.charAt(0)) > -1) == false))
-		{
-			//adds to tempWord the letter
-			tempWord = tempWord + playerGuess.charAt(0);
-			//adds a ? to the printedWord
-			printedWord = printedWord + "?";
-		}
-		else 
-		{
-			//if none of these check, it adds a X
-			printedWord = printedWord + "X";
-		}
-		
-		
-		//repeats
 		if (keyWord.charAt(1) == playerGuess.charAt(1))
 		{
-			printedWord = printedWord + keyWord.charAt(1);
-		}
-		else if (keyWord.indexOf(playerGuess.charAt(1)) > -1 && ((tempWord.indexOf(playerGuess.charAt(1)) > -1) == false))
-		{
-				tempWord+= playerGuess.charAt(1);
-				printedWord+= "?";
-		}
-		else 
-		{
-			printedWord+= "X";
+			printedWord = printedWord.substring(0, 1) + keyWord.charAt(1) + printedWord.substring(2, 5);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(1))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(1)) + 1, tempKey.length());
 		}
 		
-		
-		
-		//repeats
 		if (keyWord.charAt(2) == playerGuess.charAt(2))
 		{
-			printedWord = printedWord + keyWord.charAt(2);
+			printedWord = printedWord.substring(0, 2) + keyWord.charAt(2) + printedWord.substring(3, 5);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(2))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(2)) + 1, tempKey.length());
 		}
-		else if (keyWord.indexOf(playerGuess.charAt(2)) > -1 && ((tempWord.indexOf(playerGuess.charAt(2)) > -1) == false))
-		{
-			tempWord+= playerGuess.charAt(2);
-			printedWord+= "?";
-		}
-		else 
-		{
-			printedWord+= "X";
-		}
-		
-		
-		//repeats
+		System.out.print(printedWord);
 		if (keyWord.charAt(3) == playerGuess.charAt(3))
 		{
-			printedWord = printedWord + keyWord.charAt(3);
-		}
-		else if (keyWord.indexOf(playerGuess.charAt(3)) > -1 && ((tempWord.indexOf(playerGuess.charAt(3)) > -1) == false))
-		{
-			tempWord+= playerGuess.charAt(3);
-			printedWord+= "?";
-		}
-		else 
-		{
-			printedWord+= "X";
+			printedWord = printedWord.substring(0, 3) + keyWord.charAt(3) + printedWord.substring(4, 5);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(3))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(3)) + 1, tempKey.length());
 		}
 		
-		
-		//repeats
 		if (keyWord.charAt(4) == playerGuess.charAt(4))
 		{
-			printedWord = printedWord + keyWord.charAt(4);
+			printedWord = printedWord.substring(0, 4) + keyWord.charAt(4);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(4))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(4)) + 1, tempKey.length());
 		}
-		else if (keyWord.indexOf(playerGuess.charAt(4)) > -1 && ((tempWord.indexOf(playerGuess.charAt(4)) > -1) == false))
-		{
-			tempWord+= playerGuess.charAt(4);
-			printedWord+= "?";
-		}
-		else 
-		{
-			printedWord+= "X";
-		}
-		System.out.println(printedWord);
+		//checks if the solution has the letter and that it doesn't exist in tempWord
+		//repeats
 		
+		
+		
+		
+		if (((tempKey.indexOf(playerGuess.charAt(0)) > -1)) && !(keyWord.charAt(0) == playerGuess.charAt(0)))
+		{
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(0))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(0)) + 1, tempKey.length());	
+			printedWord = "?" + printedWord.substring(1, 5);
 
+		}
+		System.out.println(tempKey);
+		if (((tempKey.indexOf(playerGuess.charAt(1)) > -1)) && !(keyWord.charAt(1) == playerGuess.charAt(1)))
+		{
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(1))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(1)) + 1, tempKey.length());
+			printedWord = printedWord.substring(0, 1) + "?" + printedWord.substring(2, 5);
+			
+		}
+		System.out.println(tempKey);
+		if (((tempKey.indexOf(playerGuess.charAt(2)) > -1)) && !(keyWord.charAt(2) == playerGuess.charAt(2)) )
+		{
+				tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(2))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(2)) + 1, tempKey.length());
+				printedWord = printedWord.substring(0, 2) + "?" + printedWord.substring(3, 5);
+		}
+		System.out.println(tempKey);
+		if (((tempKey.indexOf(playerGuess.charAt(3)) > -1)) && !(keyWord.charAt(3) == playerGuess.charAt(3)))
+		{
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(3))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(3)) + 1, tempKey.length());
+			printedWord = printedWord.substring(0, 3) + "?" + printedWord.substring(4, 5);
+		}
+		System.out.println(tempKey);
+		if (((tempKey.indexOf(playerGuess.charAt(4)) > -1)) && !(keyWord.charAt(4) == playerGuess.charAt(4)))
+		{
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(4))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(4)) + 1, tempKey.length());
+			printedWord = printedWord.substring(0, 4) + "?";
+		}
 		
+		System.out.println(tempKey);
+		System.out.println("Printed outcome: " + printedWord);
+
 		//if they guess wrong
 		 if (!(playerGuess.equals(keyWord)))
 		{
