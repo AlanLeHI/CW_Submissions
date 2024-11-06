@@ -54,15 +54,12 @@ public class main {
 	{
 		//printed word that will print at the end
 		String printedWord = "XXXXX";
-		//tempWord will be used to check if letters are repeated
-		String tempWord =  "";
+		//tempWord will be used to check if letters are repeated multiple times by removing it from the tempKey if it is. That way
 		String tempKey = keyWord;
-		System.out.println(keyWord + "\nTEsting");
 		/*
 		 * will repeat a whole bunch of times for each letter but the short of it is that it checks if the letter
-		 * matches the player guess and prints that letter if it do. If it exists, it'll return a ? unless it is already in temp word.
-		 * Also if the letter exists, it is added to tempWord. If the letter doesn't exist it or is in tempWord && isn't in that spot it 
-		 * will print an X. Makes sense? I hope it does because I coded this at 2 AM and I feel like a damn genius
+		 * matches the player guess and replaces the X with that index with that letter if it do. If it exists, it'll return a ? unless it is not in tempKey.
+		 * Also if the letter exists, it is replaced in tempWord. I hope it does because I coded this at 2 AM and I feel like a damn genius
 		 */
 		if (keyWord.charAt(0) == playerGuess.charAt(0))
 		{
@@ -100,10 +97,13 @@ public class main {
 		
 		
 		
-		
+		//checks if the word exists in tempKey and isn't matching, it removes the char from tempKey and replaces it with a space then
+		//replaces the poition with ? on printedWord
 		if (((tempKey.indexOf(playerGuess.charAt(0)) > -1)) && !(keyWord.charAt(0) == playerGuess.charAt(0)))
 		{
+			//the replacing of tempKey
 			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(0))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(0)) + 1, tempKey.length());	
+			//the replacing with ?
 			printedWord = "?" + printedWord.substring(1, 5);
 
 		}
@@ -143,25 +143,28 @@ public class main {
 			 //this solely exists because I felt like the randomizer didn't reroll every time properly so I wanted
 			 //to make sure it works
 			 int tellThemTheySuck = 0;
+			
 			 if (tellThemTheySuck  == tellThemTheySuck)
 			 {
+				//randomizes the messages 
 				 tellThemTheySuck = ((int) ((Math.random())*4));
 			 }
+			//tell them they suck ver 1
 			 if (tellThemTheySuck == 0)
 			 {
 				 System.out.println("L bozo");
 			 }
-			 
+			 //tell them they suck ver 2
 			 if (tellThemTheySuck == 1)
 			 {
 				 System.out.println("Try harder next time...");
 			 }
-			 
+			 //tell them they suck ver 3
 			 if (tellThemTheySuck == 2)
 			 {
 				 System.out.println("You really need help to solve a wordle huh?");
 			 }
-			 
+			 //tell them they suck ver 4
 			 if (tellThemTheySuck == 3)
 			 {
 				 System.out.println("You should give up...");
