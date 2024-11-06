@@ -6,7 +6,7 @@ public class main {
 		//random word generator
 		String soln = new String ("brick" + "crass" + "crack" + "flame" + "guess" + "grass" + "tries" + "track");
 		//picks a random word by cutting out one word from the string
-		int randomWord = ((int) ((Math.random())* (soln.length())/5) ) * 5;
+		int randomWord = ((int) ((Math.random())* ((soln.length())/5)+1) ) * 5;
 		//picks that word as a "keyWord" or solution
 		String keyWord = soln.substring(randomWord, randomWord + 5);
 		
