@@ -156,7 +156,7 @@ public class main {
 			printedWord = printedWord.substring(0, 4) + "?";
 		}
 		
-		
+		//prints out da word
 		System.out.println(printedWord);
 
 		//if they guess wrong
@@ -192,6 +192,7 @@ public class main {
 			 {
 				 System.out.println("You should give up...");
 			 }
+			//restarts game
 			 playGame(keyWord);
 		}
 		
