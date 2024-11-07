@@ -140,8 +140,8 @@ public class main {
 		
 		if (((tempKey.indexOf(playerGuess.charAt(2)) > -1)) && !(keyWord.charAt(2) == playerGuess.charAt(2)) )
 		{
-				tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(2))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(2)) + 1, tempKey.length());
-				printedWord = printedWord.substring(0, 2) + "?" + printedWord.substring(3, 5);
+			tempKey = tempKey.substring(0, tempKey.indexOf(playerGuess.charAt(2))) + " " + tempKey.substring(tempKey.indexOf(playerGuess.charAt(2)) + 1, tempKey.length());
+			printedWord = printedWord.substring(0, 2) + "?" + printedWord.substring(3, 5);
 		}
 		
 		if (((tempKey.indexOf(playerGuess.charAt(3)) > -1)) && !(keyWord.charAt(3) == playerGuess.charAt(3)))
