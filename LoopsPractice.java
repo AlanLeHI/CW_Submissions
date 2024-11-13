@@ -5,10 +5,7 @@ public class main {
 		// TODO Auto-generated method stub
 		System.out.println(letterChecker("Leeeroy", 'e'));
 		System.out.println(getFactorial(5));
-		printIfRepeats("water");
-		
-		
-		
+		printIfRepeats("AaBb");
 		
 	}
 	/**
@@ -58,6 +55,8 @@ return x;
  */
 public static void printIfRepeats(String str)
 {
+	//changes string to lowercase
+	str = str.toLowerCase();
 	//creates a temporary word to check against
 	String tempKey = str;
 	//if each check fails, returns false
