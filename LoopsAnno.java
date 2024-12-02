@@ -6,8 +6,8 @@ public class Main {
 		System.out.print(getMonth(1));
 	}
 	/*
-	 *
-	 *
+	 *It says the month according to the index.  It does this by making a large string of all the months and cuts off the rest of the months using the
+	 *spaces between the month names.
 	*/
 	public static String getMonth(int n)
 		{
