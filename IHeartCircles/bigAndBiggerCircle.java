@@ -1,11 +1,11 @@
 import java.util.Scanner;
 public class Main {
     static Scanner myReader = new Scanner(System.in);
-
-    repeatTillStop();
     
     public static void main(String[] args) {
-        firstCircle();
+    	repeatTillStop();
+    	firstCircle();
+        
     }
 
     /*
@@ -92,10 +92,8 @@ how many horrible messages they've said
         Circle newCirc = new Circle(finalRadius);
         //prints og circle stats
         System.out.println("Your original circle with the radius of " + radius1 + " has the stats of");
-        System.out.println(ogCirc.toString());
         //prints final circle stats
         System.out.println("Your new circle with the radius of " + finalRadius + " has the stats of");
-        System.out.println(newCirc.toString());
 
     }
 }
