@@ -53,6 +53,7 @@ how many horrible messages they've said
             System.out.println("You're stupid, we're restarting");
             firstCircle();
         }
+        //creates og circle
         new ogCirc = new Circle(radius);
         //goes onto making the second circle
         finalCircle(radius, ogCirc);
@@ -87,7 +88,7 @@ how many horrible messages they've said
         }
         //adds of radius to final radius
         finalRadius += radius1;
-        //creates og circle
+        //changes to new circle
         ogCirc = Circle(finalRadius);
 
         System.out.println("Circle went from " + radius1 + " to " finalRadius);
