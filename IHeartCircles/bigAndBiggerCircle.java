@@ -53,14 +53,15 @@ how many horrible messages they've said
             System.out.println("You're stupid, we're restarting");
             firstCircle();
         }
+        new ogCirc = new Circle(radius);
         //goes onto making the second circle
-        finalCircle(radius);
+        finalCircle(radius, ogCirc);
     }
 
     /*
     This one asks for 5 inputs and adds them onto the final radius to make another circle
      */
-    public static void finalCircle(double radius1)
+    public static void finalCircle(double radius1, Circle ogCirc)
     {
         //temp sets radius to 0
         double finalRadius = 0;
@@ -87,15 +88,9 @@ how many horrible messages they've said
         //adds of radius to final radius
         finalRadius += radius1;
         //creates og circle
-        Circle ogCirc = new Circle(radius1);
-        //creates final circle
-        Circle newCirc = new Circle(finalRadius);
-        //prints og circle stats
-        System.out.println("Your original circle with the radius of " + radius1 + " has the stats of");
-        System.out.println(ogCirc.toString());
-        //prints final circle stats
-        System.out.println("Your new circle with the radius of " + finalRadius + " has the stats of");
-        System.out.println(newCirc.toString());
+        ogCirc = Circle(finalRadius);
+
+        System.out.println("Circle went from " + radius1 + " to " finalRadius);
 
     }
 }
