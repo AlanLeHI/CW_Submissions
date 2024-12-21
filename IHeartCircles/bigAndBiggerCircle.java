@@ -54,7 +54,7 @@ how many horrible messages they've said
             firstCircle();
         }
         //creates og circle
-        new ogCirc = new Circle(radius);
+        Circle ogCirc = new Circle(radius);
         //goes onto making the second circle
         finalCircle(radius, ogCirc);
     }
@@ -89,7 +89,7 @@ how many horrible messages they've said
         //adds of radius to final radius
         finalRadius += radius1;
         //changes to new circle
-        ogCirc = Circle(finalRadius);
+        ogCirc = new Circle(finalRadius);
 
         System.out.println("Circle went from " + radius1 + " to " finalRadius);
 
