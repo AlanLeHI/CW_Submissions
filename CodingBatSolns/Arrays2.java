@@ -1,34 +1,37 @@
 //rotateLeft3
 public int[] rotateLeft3(int[] nums) {
+  int[] tempAr = nums;
   int temp = nums[0];
   int temp2 = nums[1];
-  nums[1] = nums[2];
-  nums[0] = temp2;
-  nums[2] = temp;
-  return nums;
+  tempAr[1] = nums[2];
+  tempAr[0] = temp2;
+  tempAr[2] = temp;
+  return tempAr;
 }
 //reverse3
 public int[] reverse3(int[] nums) {
+  int[] tempAr = nums;
   int temp = nums[2];
-  nums[2] = nums[0];
-  nums[0] = temp;
-  return nums;
+  tempAr[2] = nums[0];
+  tempAr[0] = temp;
+  return tempAr;
   
 }
 
 //maxEnd3
 public int[] maxEnd3(int[] nums) {
+  int[] tempAr = nums;
   if (nums[2] > nums[0])
   {
-    nums[1] = nums[2];
-    nums[0] = nums[2];
+    tempAr[1] = nums[2];
+    tempAr[0] = nums[2];
   }
   else
   {
-    nums[1] = nums[0];
-    nums[2] = nums[0];
+    tempAr[1] = nums[0];
+    tempAr[2] = nums[0];
   }
-  return nums;
+  return tempAr;
 }
 
 //sum2
