@@ -10,11 +10,12 @@ public class Main {
 	}
 public static int[] subtract5FromAll(int[] nums)
 {
+	int[] temp = nums;
 	for (int i = 0; i < nums.length - 1; i++)
 	{
-		nums[i] = nums[i] - 5;
+		temp[i] = nums[i] - 5;
 	}
-	return nums;
+	return temp;
 }
 public static void PA(int[] test)
 {
