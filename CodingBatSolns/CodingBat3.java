@@ -54,4 +54,19 @@ public boolean double23(int[] nums) {
   return false;
 }
 
-//
+//fix23
+public int[] fix23(int[] nums) {
+  int[] copyArr = new int[nums.length];
+  String test = "hi";
+  for (int i = 0; i < nums.length; i++)
+  {
+    test += nums[i];
+    copyArr[i] = nums[i];
+  }
+  if (test.indexOf("23") > -1)
+  {
+    copyArr[test.indexOf("23") - 1] = 0;
+  }
+  return copyArr;
+}
+
