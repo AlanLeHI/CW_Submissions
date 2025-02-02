@@ -147,3 +147,19 @@ public int[] makeMiddle(int[] nums) {
   return new int[]{nums[arrMiddle], nums[arrMiddle + 1]};
 }
 
+//plus2
+public int[] plusTwo(int[] a, int[] b) {
+  int[] c = new int[a.length + b.length];
+  for (int i = 0; i < a.length ; i++)
+  {
+    c[i] = a[i];
+  }
+  int t = b.length;
+  for (int i = a.length ; t < (a.length + b.length); i++)
+  {
+    c[i] = b[i - a.length];
+    t++;
+  }
+  return c;
+}
+
