@@ -163,3 +163,116 @@ public int[] plusTwo(int[] a, int[] b) {
   return c;
 }
 
+//swapEnds
+public int[] swapEnds(int[] nums) {
+  int[] copyArr = new int[nums.length];
+  for (int i = 0; i < nums.length; i++)
+  {
+    copyArr[i] = nums[i];
+  }
+  copyArr[0] = nums[nums.length - 1];
+  copyArr[nums.length-1] = nums[0];
+  return copyArr;
+}
+
+//midThree
+public int[] midThree(int[] nums) {
+  int arrMiddle = (nums.length/2) - 1;
+  return new int[]{nums[arrMiddle], nums[arrMiddle + 1], nums[arrMiddle + 2]};
+}
+
+//maxTriple
+public int maxTriple(int[] nums) {
+  int[] copyArr = new int[nums.length];
+  for (int i = 0; i < nums.length; i++)
+  {
+    copyArr[i] = nums[i];
+  }
+  int sorted = 0;
+  if (nums[0] > nums[nums.length - 1])
+  {
+    sorted = nums[0];
+  }
+  else 
+  {
+    sorted = nums[nums.length-1];
+  }
+  if (sorted < nums[nums.length/2])
+  {
+    sorted = nums[nums.length/2];
+  }
+  return sorted;
+}
+
+//frontPiece
+public int[] frontPiece(int[] nums) {
+  int[] copyArr = new int[2];
+  if (nums.length < 2)
+  {
+    return nums;
+  }
+  for (int i = 0; i < 2; i++)
+  {
+    copyArr[i] = nums[i];
+  }
+  return copyArr;
+}
+
+//unlucky1
+public boolean unlucky1(int[] nums) {
+  int[] copyArr = new int[nums.length];
+  String test = "";
+  for (int i = 0; i < nums.length; i++)
+  {
+    test += nums[i];
+    copyArr[i] = nums[i];
+  }
+  if (test.length() < 2)
+  {
+    return false;
+  }
+  if ((test.indexOf("13") > -1 && ((test.indexOf("13") == 0) || (test.indexOf("13") == 1) || test.indexOf("13") == test.length() - 2)) || test.indexOf("13") == test.length()-1)
+  {
+    return true;
+  }
+  return false;
+}
+
+//make2
+public int[] make2(int[] a, int[] b) {
+  int arrLength = a.length + b.length;
+  int[] c = new int[arrLength];
+  for (int i = 0; i < a.length; i++ )
+  {
+    c[i] = a[i];
+  }
+  
+  for (int i = a.length; i < arrLength; i++)
+  {
+    c[i] = b[i - a.length];
+  }
+  
+  return new int[]{c[0], c[1]};
+  
+}
+
+//front11
+public int[] front11(int[] a, int[] b) {
+  if (a.length > 0 && b.length > 0)
+  {
+    return new int[]{a[0], b[0]};
+  }
+  else if (a.length == 0 && b.length > 0)
+  {
+    return new int[]{b[0]};
+  }
+  else if(a.length > 0 && b.length == 0)
+  {
+    return new int[]{a[0]};
+  }
+  else
+  {
+    return new int[]{};
+  }
+}
+
