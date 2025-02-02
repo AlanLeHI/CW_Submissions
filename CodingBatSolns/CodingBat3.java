@@ -70,3 +70,80 @@ public int[] fix23(int[] nums) {
   return copyArr;
 }
 
+//start1
+
+public int start1(int[] a, int[] b) {
+  int[] copyArr = new int[a.length];
+  int[] copyArr2 = new int[b.length];
+  int counter = 0;
+  for (int i = 0; i < a.length; i++)
+  {
+    copyArr[i] = a[i];
+  }
+  for (int i = 0; i < b.length; i++)
+  {
+    copyArr2[i] = b[i];
+  }
+  
+  if (a.length > 0 && a[0] == 1)
+  {
+    counter ++;
+  }
+  
+  if (b.length > 0 && b[0] == 1)
+  {
+    counter ++;
+  }
+  return counter;
+}
+
+//biggerTwo
+public int[] biggerTwo(int[] a, int[] b) {
+  int[] copyArr = new int[a.length];
+  int[] copyArr2 = new int[b.length];
+  int sumA = 0;
+  int sumB = 0;
+  for (int i = 0; i < a.length; i++)
+  {
+    sumA += a[i];
+    copyArr[i] = a[i];
+  }
+  for (int i = 0; i < b.length; i++)
+  {
+    sumB += b[i];
+    copyArr2[i] = b[i];
+  }
+  
+  if (sumA < sumB)
+  {
+    return b;
+  }
+  return a;
+}
+
+//okay this one is just makeMiddle but I misread the instructions and made an array containing all the middle elements not just the 2 in the middle
+//which is arguably cooler so I'm still adding this one
+public int[] makeMiddle(int[] nums) {
+  int arrLength = 0;
+  if (nums.length != 2)
+  {
+  arrLength = nums.length - 2;
+  }
+  else if (nums.length == 2)
+  {
+    return new int[]{nums[0], nums[1]};
+  }
+  int[] copyArr = new int[arrLength];
+  for (int i = 1; i < arrLength + 1; i++)
+  {
+    copyArr[i - 1] = nums[i];
+  }
+  return copyArr;
+}
+
+//makeMiddle
+public int[] makeMiddle(int[] nums) {
+  int arrMiddle = (nums.length/2) - 1;
+  return new int[]{nums[arrMiddle], nums[arrMiddle + 1]};
+}
+
