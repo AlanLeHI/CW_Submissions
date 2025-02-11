@@ -324,7 +324,7 @@ public static void shift(int nums[])
 	    copyArr[k] = nums[k];
 	  }
 	//creates an index for the array to go be copied to
-	for (int i = 1; i < nums.length - 1; i++)
+	for (int i = 1; i < nums.length; i++)
 	{
 		//copies from  temp to array  backwards
 		nums[i] = copyArr[i + 1];
