@@ -3,14 +3,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] checkArr = {4, 11, 12, 99, 100, 7, -4};
+		int[] checkArr = {1, 1, 2, 2, 1, 1, 2, 2, 1};
 		int[] checkArr2 = {4, 11, 12, 99, 100, 7, -4};
+		int[] checkArr3 = {1, 1, 2, 2, 5, 5, 5, 2, 2, 5, 1};
+		int[] checkArr4 = {12, 6, 8, 2, 5};
 		checkArr2 = sort(checkArr);
 		for (int i = 0; i < checkArr.length; i++)
 		{
-			System.out.println(checkArr2[i]);
+			System.out.println(checkArr[i]);
 		}
 		System.out.println("hello");
+		System.out.println(even(checkArr4));
+		replace15(checkArr3);
+		for (int i = 0; i < checkArr4.length; i++)
+		{
+			System.out.println(checkArr4[i]);
+		}
 	}
 	
 	
@@ -213,29 +221,53 @@ public static int average(int num[])
 	}
 	average /= num.length;
 	return average;
-			
+	
 }
+
+public static boolean even(int nums[])
+{
+	 for (int i = 0; i < nums.length; i++)
+	 {
+			 if (nums[i] % 2 != 0)
+			 {
+				 return false;
+			 }
+	 }
+	 return true;
+}
+
+
+
 /**
  * replaces 2 consecutive 5s into 0s
  * @param nums
  */
 public static void replace15(int nums[])
 {
-	//turns the array into a string
 	int[] copyArr = new int[nums.length];
-	  String test = "";
 	  for (int i = 0; i < nums.length; i++)
 	  {
-	    test += nums[i];
 	    copyArr[i] = nums[i];
 	  }
-	  //finds the index of the 2 5s and replaces them
-	  if(test.indexOf("55") != -1)
-	  {
-		  int temp = test.indexOf("55");
-		  nums[temp] = 0;
-		  nums[temp + 1] = 0;
-	  }
+	 int counter = 0;
+	  //goes through 0-9 to check if there are any repeats
+	 for (int i = 0; i < nums.length; i++)
+	 {
+			 if (copyArr[i] == 5)
+			 {
+				 counter++;
+			 }
+			 if (copyArr[i] != 5)
+			 {
+				 counter = 0;
+			 }
+			 if (counter == 2)
+			 {
+				 nums[i] = 0;
+				 nums[i - 1] = 0;
+				 counter = 0;
+			 }
+	}
 }
 
 /**
@@ -243,28 +275,33 @@ public static void replace15(int nums[])
  */
 public static boolean tripleCheck(int nums[])
 {
-	//turns the array into a string
 		int[] copyArr = new int[nums.length];
-		  String test = "";
 		  for (int i = 0; i < nums.length; i++)
 		  {
-		    test += nums[i];
 		    copyArr[i] = nums[i];
 		  }
-		 
+		 int counter = 0;
 		  //goes through 0-9 to check if there are any repeats
-		 for (int i = 0; i < 9; i++)
+		 for (int i = 0; i < nums.length; i++)
 		 {
-			//creates a string of three repeating numbers
-			 String num = "";
-			 num += i;
-			 num += i;
-			 num += i;
-			 //if it exists inside the string, it returns -1
-			 if (test.indexOf(num) != -1)
+			 counter = 0;
+			 for (int t = 0; t < nums.length; t++)
 			 {
-				 return true;
+				 if (copyArr[i] == nums[t])
+				 {
+					 counter++;
+				 }
+				 if (copyArr[i] != nums[t])
+				 {
+					 counter = 0;
+				 }
+				 if (counter >= 3)
+				 {
+					 return true;
+				 }
 			 }
+			 
+			 //if it exists inside the string, it adds 1 to the counter and if it exceeds 3 it returns true
 		 }
 		 return false;
 }
@@ -324,7 +361,7 @@ public static void shift(int nums[])
 	    copyArr[k] = nums[k];
 	  }
 	//creates an index for the array to go be copied to
-	for (int i = 1; i < nums.length; i++)
+	for (int i = 1; i < nums.length - 1; i++)
 	{
 		//copies from  temp to array  backwards
 		nums[i] = copyArr[i + 1];
