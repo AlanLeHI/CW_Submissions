@@ -224,14 +224,23 @@ public static int average(int num[])
 	
 }
 
+/**
+ * checks if all nums are even
+ * @param nums
+ * @return
+ */
 public static boolean even(int nums[])
 {
 	 for (int i = 0; i < nums.length; i++)
 	 {
-			 if (nums[i] % 2 != 0)
-			 {
-				 return false;
-			 }
+		//checks if it's even 
+		 if (nums[i] % 2 != 0)
+			 
+		 {
+				 
+			 return false;
+			 
+		 }
 	 }
 	 return true;
 }
