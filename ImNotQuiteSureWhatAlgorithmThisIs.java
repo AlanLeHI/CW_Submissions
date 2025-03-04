@@ -369,13 +369,14 @@ public static void shift(int nums[])
 	  {
 	    copyArr[k] = nums[k];
 	  }
+	int temp = copyArr[nums.length-1]
 	//creates an index for the array to go be copied to
-	for (int i = 1; i < nums.length - 1; i++)
+	for (int i = 1; i < nums.length; i++)
 	{
 		//copies from  temp to array  backwards
-		nums[i] = copyArr[i + 1];
+		nums[i] = copyArr[i - 1];
 	}
-	nums[0] = copyArr[nums.length-1];
+	nums[0] = temp;
 }
 
 }
