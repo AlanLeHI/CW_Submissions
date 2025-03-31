@@ -54,11 +54,11 @@ public class Main {
 		//7. For both of those arrays, change the last element in the last row to a -30. Accomplish this using .length 
 		printArr(tdarray1);
 		//sets last,last of td1 to -30
-		tdarray1[tdarray1.length - 1][tdarray1.length - 1] = -30;
+		tdarray1[tdarray1.length - 1][tdarray1[0].length - 1] = -30;
 		printArr(tdarray1);
 		printArr(tdarray2);
 		//sets last,last of td2 to -30
-		tdarray2[tdarray2.length - 1][tdarray2.length - 1] = -30;
+		tdarray2[tdarray2.length - 1][tdarray2[0].length-1] = -30;
 		printArr(tdarray2);
 		
 		printArrRow1(tdarray1);
