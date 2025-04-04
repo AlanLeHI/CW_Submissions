@@ -1,9 +1,15 @@
-import java.util.Scanner;
-
+/**
+ * This method does a tic tac toe. It goes through a loop passing control back to player
+ * one and two and checks if it has three in a row. If it does, it declares the player
+ * the winner. If the board is full and there's no winner, there's a tie.
+ * 
+ */
 public class Tic {
-	static public int stageNum;
+	//makes a scanner to take inputs to put tics on the board
 	static Scanner gameReader = new Scanner (System.in);
+	//Makes the board to play on
 	static String[][] board = new String[3][3];
+	//while this is true, the game keeps going. It turns false when a player wins
 	static boolean gameState = true;
   /**
 	 * I love strings
