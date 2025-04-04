@@ -58,6 +58,7 @@ OZ$B@@M####zzJzzzzzzz$WOOOB  |vaIIlI#B     /zzzzml111/B  #o@**h@  ****@
 	 */
 public static void start()
 {
+	System.out.println("It's kinda like chess notation but weird, A is row 1, 1 is column 1 and so on");
 	//replaces all stuff in the board with ro
 	for (int i = 0; i < board.length; i++)
 	{
