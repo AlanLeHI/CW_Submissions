@@ -339,7 +339,7 @@ public static void dantesPizza(GameTile[][] maze)
 	{
 		for (int k = 0; k < maze[i].length; k++)
 		{
-			maze[i][k].setBorder(true);
+			maze[i][k].setWall(true);
 		}
 	}
 	for (int i = 0; i < maze.length; i++)
@@ -347,11 +347,11 @@ public static void dantesPizza(GameTile[][] maze)
 		for (int k = 0; k < maze[i].length; k++)
 		{
 			if(Math.random() >= 0.46)
-			maze[i][k].setBorder(false);
+			maze[i][k].setWall(false);
 		}
 	}
 	maze[maze.length - 1][maze[0].length - 1].setPoint(true);
-	maze[maze.length - 1][maze[0].length - 1].setBorder(false);
+	maze[maze.length - 1][maze[0].length - 1].setWall(false);
 	if(!comboBreak(0, 0, new ArrayList<int[]>()))
 	{
 		dantesPizza(maze);
@@ -363,22 +363,22 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	boolean yippeee = false;
 	jefferson.add(new int[] {r,c});
 	//left
-	if(c > 0 && !maze[r][c - 1].isBorder && !imcooking(r,c - 1,jefferson) && !yippeee)
+	if(c > 0 && !maze[r][c - 1].isWall && !imcooking(r,c - 1,jefferson) && !yippeee)
 	{
 		yippeee = comboBreak(r, c - 1, jefferson);
 	}
 	//right
-	if(c < maze[r].length - 1 && !maze[r][c + 1].isBorder && !imcooking(r, c + 1,jefferson) && !yippeee)
+	if(c < maze[r].length - 1 && !maze[r][c + 1].isWall && !imcooking(r, c + 1,jefferson) && !yippeee)
 	{
 		yippeee = comboBreak(r, c + 1, jefferson);
 	}
 	//up
-	if(r > 0 && !maze[r - 1][c].isBorder && !imcooking(r - 1, c,jefferson) && !yippeee)
+	if(r > 0 && !maze[r - 1][c].isWall && !imcooking(r - 1, c,jefferson) && !yippeee)
 	{
 		yippeee = comboBreak(r - 1, c, jefferson);
 	}
 	//down
-	if(r < maze.length - 1 && !maze[r + 1][c].isBorder && !imcooking(r + 1, c,jefferson)&& !yippeee)
+	if(r < maze.length - 1 && !maze[r + 1][c].isWall && !imcooking(r + 1, c,jefferson)&& !yippeee)
 	{
 		yippeee = comboBreak(r + 1, c, jefferson);
 	}
