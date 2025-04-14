@@ -363,6 +363,10 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	boolean yippeee = false;
 	jefferson.add(new int[] {r,c});
 	//left
+	if(r == maze.length - 1 && c == maze[0].length -1)
+	{
+		return true;
+	}
 	if(c > 0 && !maze[r][c - 1].isWall && !imcooking(r,c - 1,jefferson) && !yippeee)
 	{
 		yippeee = comboBreak(r, c - 1, jefferson);
@@ -382,10 +386,7 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	{
 		yippeee = comboBreak(r + 1, c, jefferson);
 	}
-	if(r == maze.length - 1 && c == maze[0].length -1)
-	{
-		return true;
-	}
+	
 	return yippeee;
 }
 
