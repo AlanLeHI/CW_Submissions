@@ -363,7 +363,7 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	boolean yippeee = false;
 	jefferson.add(new int[] {r,c});
 	//left
-	if(r == maze.length - 1 && c == maze[0].length -1)
+	if(r == maze[r][c].isPoint())
 	{
 		return true;
 	}
