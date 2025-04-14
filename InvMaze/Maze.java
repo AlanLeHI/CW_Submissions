@@ -158,16 +158,20 @@ public static void start()
  */
 public static void playerOne(Player Jeff)
 {
+	//if the maze isn't solved go do this
 	if(check(maze, Jeff))
 	{
+		//reads input and makes sure it's 1 char
 		System.out.println("Player 1:");
 		String input = gameReader.nextLine();
 		int length = input.length();
 		if (length > 1  || length < 1)
 		{
+			//ask again if it doesn't work
 			System.out.println("Invalid: Try Again");
 			playerOne(Jeff);
 		}
+		//if it does, does a move
 		else
 		{
 			placer(input, true, Jeff);
@@ -195,11 +199,13 @@ public static void placer(String cords, boolean player, Player Jeff)
 		{
 			//bonk reveals the wall
 			System.out.println("BONK");
+			//if it's  a wall, it reveals it
 			if(maze[Jeff.getrPos() - 1][Jeff.getcPos()].isRevealed == false)
 			{
 				maze[Jeff.getrPos() - 1][Jeff.getcPos()].setRevealed(true);			
 			}
 		}
+		//else moves them
 		else
 		{
 			Jeff.reposition(Jeff, maze, -1, 0);
@@ -271,19 +277,22 @@ public static void printArr(GameTile[][] board2)
 			{
 				System.out.print(" X ");
 			}
-			//
+			//if player
 			else if (board2[i][k].isHasPlayer())
 			{
 				System.out.print(" 8 ");
 			}
+			//if revealed wall
 			else if(board2[i][k].isRevealed() && board2[i][k].isWall())
 			{
 				System.out.print(" W ");
 			}
+			//if revealed path
 			else if(board2[i][k].isRevealed())
 			{
 				System.out.print(" H ");
 			}
+			//hidden stuff
 			else
 			{
 				System.out.print(" J ");
@@ -294,6 +303,8 @@ public static void printArr(GameTile[][] board2)
 	}
 	System.out.println();
 }
+
+
 public static boolean check(GameTile[][] board, Player guy)
 {
 	int x = -1;
@@ -333,8 +344,14 @@ public static boolean check(GameTile[][] board, Player guy)
 	}
 	
 }
+
+/**
+ * W naming. it vomits on the board to create a randomized maze. Then uses I'm cooking to check if the maze is solveable
+ * @param maze
+ */
 public static void dantesPizza(GameTile[][] maze)
 {
+	//makes it all walls
 	for (int i = 0; i < maze.length; i++)
 	{
 		for (int k = 0; k < maze[i].length; k++)
@@ -342,6 +359,7 @@ public static void dantesPizza(GameTile[][] maze)
 			maze[i][k].setWall(true);
 		}
 	}
+	//randomly deletes walls
 	for (int i = 0; i < maze.length; i++)
 	{
 		for (int k = 0; k < maze[i].length; k++)
@@ -350,8 +368,10 @@ public static void dantesPizza(GameTile[][] maze)
 			maze[i][k].setWall(false);
 		}
 	}
+	//sets the point to the bottom right corner
 	maze[maze.length - 1][maze[0].length - 1].setPoint(true);
 	maze[maze.length - 1][maze[0].length - 1].setWall(false);
+	//as long as there is an unsolveable maze it keeps running. If the maze is solveable, makes it false so it doesn't run
 	if(!comboBreak(0, 0, new ArrayList<int[]>()))
 	{
 		dantesPizza(maze);
@@ -360,15 +380,20 @@ public static void dantesPizza(GameTile[][] maze)
 
 public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 {
+	//creates boolean to keep the loop running
 	boolean yippeee = false;
+	//first adds starting cords then new cords.
 	jefferson.add(new int[] {r,c});
-	//left
-	if(r == maze[r][c].isPoint())
+	if(r == maze.length - 1 && c == maze[0].length -1)
 	{
 		return true;
 	}
+	//goes through every direction to check if it's possible, then goes through the path. If there's a path already taken
+	//it is added to the created arraylist
+	//left
 	if(c > 0 && !maze[r][c - 1].isWall && !imcooking(r,c - 1,jefferson) && !yippeee)
 	{
+		//goes through the path
 		yippeee = comboBreak(r, c - 1, jefferson);
 	}
 	//right
@@ -386,17 +411,25 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	{
 		yippeee = comboBreak(r + 1, c, jefferson);
 	}
-	
 	return yippeee;
 }
-
+/**
+ * checks if the path is already inside the arraylist passed
+ * @param y
+ * @param x
+ * @param jefferson
+ * @return
+ */
 public static boolean imcooking(int y, int x, ArrayList<int[]> jefferson)
 {
+	//the check
 	boolean flipper = false;
+	//looks through the entire arraylist
 	for (int i = 0; i < jefferson.size(); i++)
 	{
 		for(int k = 0; k < jefferson.get(i).length; k++)
 		{
+			//if it exists, returns true
 			int[] jack = jefferson.get(i);
 			if(jack[0] == y && jack[1] == x)
 			{
