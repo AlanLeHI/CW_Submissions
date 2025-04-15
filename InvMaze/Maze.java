@@ -365,7 +365,9 @@ public static void dantesPizza(GameTile[][] maze)
 		for (int k = 0; k < maze[i].length; k++)
 		{
 			if(Math.random() >= 0.46)
-			maze[i][k].setWall(false);
+			{
+				maze[i][k].setWall(false);
+			}
 		}
 	}
 	//sets the point to the bottom right corner
