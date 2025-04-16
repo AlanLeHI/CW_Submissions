@@ -195,7 +195,11 @@ public static void placer(String cords, boolean player, Player Jeff)
 	//reads the input, reveals path and bonks if it's a wall, moves the player to that GameTile if not, yeah that's the rest of the code 
 	if (cord1.equalsIgnoreCase("w"))
 		{
-		if (maze[Jeff.getrPos() - 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() - 1][Jeff.getcPos()].isWall)
+		if(Jeff.getrPos() == 0)
+		{
+			System.out.println("BONK");
+		}
+		else if (maze[Jeff.getrPos() - 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() - 1][Jeff.getcPos()].isWall)
 		{
 			//bonk reveals the wall
 			System.out.println("BONK");
@@ -213,7 +217,11 @@ public static void placer(String cords, boolean player, Player Jeff)
 		}
 	else if (cord1.equalsIgnoreCase("a"))
 		{
-		if (maze[Jeff.getrPos()][Jeff.getcPos() - 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() - 1].isWall)
+		if (Jeff.getcPos() == 0)
+		{
+			System.out.println("BONK");
+		}
+		else if (maze[Jeff.getrPos()][Jeff.getcPos() - 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() - 1].isWall)
 		{
 			System.out.println("BONK");
 			if(maze[Jeff.getrPos()][Jeff.getcPos() - 1].isRevealed == false)
@@ -228,7 +236,11 @@ public static void placer(String cords, boolean player, Player Jeff)
 		}
 	else if (cord1.equalsIgnoreCase("s"))
 		{
-		if (maze[Jeff.getrPos() + 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() + 1][Jeff.getcPos()].isWall)
+		if (Jeff.getrPos() == maze.length - 1)
+		{
+			System.out.println("BONK");
+		}
+		else if (maze[Jeff.getrPos() + 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() + 1][Jeff.getcPos()].isWall)
 		{
 			System.out.println("BONK");
 			if(maze[Jeff.getrPos() + 1][Jeff.getcPos() ].isRevealed == false)
@@ -243,7 +255,11 @@ public static void placer(String cords, boolean player, Player Jeff)
 		}
 	else if (cord1.equalsIgnoreCase("d"))
 	{
-		if (maze[Jeff.getrPos()][Jeff.getcPos() + 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() + 1].isWall)
+		if(Jeff.getcPos() == maze[Jeff.getrPos()].length - 1)
+		{
+			System.out.println("BONK");
+		}
+		else if (maze[Jeff.getrPos()][Jeff.getcPos() + 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() + 1].isWall)
 		{
 			System.out.println("BONK");
 			if(maze[Jeff.getrPos()][Jeff.getcPos() + 1].isRevealed == false)
@@ -364,10 +380,8 @@ public static void dantesPizza(GameTile[][] maze)
 	{
 		for (int k = 0; k < maze[i].length; k++)
 		{
-			if(Math.random() >= 0.46)
-			{
-				maze[i][k].setWall(false);
-			}
+			if(Math.random() >= 0.68)
+			maze[i][k].setWall(false);
 		}
 	}
 	//sets the point to the bottom right corner
