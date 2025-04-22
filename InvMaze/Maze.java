@@ -130,7 +130,7 @@ public static void start()
 	maze[3][4].setWall(true);
 	maze[1][5].setPoint(true);
 	*/
-	dantesPizza(maze);
+	mazeCre(maze);
 	maze[Jeff.getrPos()][Jeff.getcPos()].setBorder(false);
 	maze[Jeff.getrPos()][Jeff.getcPos()].setHasPlayer(true);
 	
@@ -278,6 +278,7 @@ public static void placer(String cords, boolean player, Player Jeff)
 
 /**
  * prints the 2D array row major order, prints specific stuff to represent the gametiles
+ * I'm gonna be honest, I made the toString method after so I'm too lazy to remake it
  * @param board
  */
 public static void printArr(GameTile[][] board2)
@@ -365,7 +366,7 @@ public static boolean check(GameTile[][] board, Player guy)
  * W naming. it vomits on the board to create a randomized maze. Then uses I'm cooking to check if the maze is solveable
  * @param maze
  */
-public static void dantesPizza(GameTile[][] maze)
+public static void mazeCre(GameTile[][] maze)
 {
 	//makes it all walls
 	for (int i = 0; i < maze.length; i++)
@@ -390,7 +391,7 @@ public static void dantesPizza(GameTile[][] maze)
 	//as long as there is an unsolveable maze it keeps running. If the maze is solveable, makes it false so it doesn't run
 	if(!comboBreak(0, 0, new ArrayList<int[]>()))
 	{
-		dantesPizza(maze);
+		mazeCre(maze);
 	}
 }
 
