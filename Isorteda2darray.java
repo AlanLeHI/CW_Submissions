@@ -69,6 +69,9 @@ public static double[][] sortUD(double [][] toBeSorted)
 	return toBeSorted;
 }
 
+/**
+* the b(est) (s)ort(er), sorts an arraylist
+*/
 public static void bort(ArrayList<Double> numArr)
 {
 	
