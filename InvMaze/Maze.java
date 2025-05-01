@@ -186,7 +186,7 @@ public static void playerOne(Player Jeff)
  * @param cords
  * @param player
  */
-public static void placer(String cords, boolean player, Player Jeff)
+public static void placer(String cords, boolean player, Player plyr)
 {
 	//don't ask
 	String cord1 = cords;
@@ -195,81 +195,81 @@ public static void placer(String cords, boolean player, Player Jeff)
 	//reads the input, reveals path and bonks if it's a wall, moves the player to that GameTile if not, yeah that's the rest of the code 
 	if (cord1.equalsIgnoreCase("w"))
 		{
-		if(Jeff.getrPos() == 0)
+		if(plyr.getrPos() == 0)
 		{
 			System.out.println("BONK");
 		}
-		else if (maze[Jeff.getrPos() - 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() - 1][Jeff.getcPos()].isWall)
+		else if (maze[plyr.getrPos() - 1][plyr.getcPos()].isBorder || maze[plyr.getrPos() - 1][plyr.getcPos()].isWall)
 		{
 			//bonk reveals the wall
 			System.out.println("BONK");
 			//if it's  a wall, it reveals it
-			if(maze[Jeff.getrPos() - 1][Jeff.getcPos()].isRevealed == false)
+			if(maze[plyr.getrPos() - 1][plyr.getcPos()].isRevealed == false)
 			{
-				maze[Jeff.getrPos() - 1][Jeff.getcPos()].setRevealed(true);			
+				maze[plyr.getrPos() - 1][plyr.getcPos()].setRevealed(true);			
 			}
 		}
 		//else moves them
 		else
 		{
-			Jeff.reposition(Jeff, maze, -1, 0);
+			plyr.reposition(plyr, maze, -1, 0);
 		}
 		}
 	else if (cord1.equalsIgnoreCase("a"))
 		{
-		if (Jeff.getcPos() == 0)
+		if (plyr.getcPos() == 0)
 		{
 			System.out.println("BONK");
 		}
-		else if (maze[Jeff.getrPos()][Jeff.getcPos() - 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() - 1].isWall)
+		else if (maze[plyr.getrPos()][plyr.getcPos() - 1].isBorder || maze[plyr.getrPos()][plyr.getcPos() - 1].isWall)
 		{
 			System.out.println("BONK");
-			if(maze[Jeff.getrPos()][Jeff.getcPos() - 1].isRevealed == false)
+			if(maze[plyr.getrPos()][plyr.getcPos() - 1].isRevealed == false)
 			{
-				maze[Jeff.getrPos()][Jeff.getcPos() - 1].setRevealed(true);			
+				maze[plyr.getrPos()][plyr.getcPos() - 1].setRevealed(true);			
 			}
 		}
 		else
 		{
-			Jeff.reposition(Jeff, maze, 0, -1);
+			plyr.reposition(Jeff, maze, 0, -1);
 		}
 		}
 	else if (cord1.equalsIgnoreCase("s"))
 		{
-		if (Jeff.getrPos() == maze.length - 1)
+		if (plyr.getrPos() == maze.length - 1)
 		{
 			System.out.println("BONK");
 		}
-		else if (maze[Jeff.getrPos() + 1][Jeff.getcPos()].isBorder || maze[Jeff.getrPos() + 1][Jeff.getcPos()].isWall)
+		else if (maze[plyr.getrPos() + 1][plyr.getcPos()].isBorder || maze[plyr.getrPos() + 1][plyr.getcPos()].isWall)
 		{
 			System.out.println("BONK");
-			if(maze[Jeff.getrPos() + 1][Jeff.getcPos() ].isRevealed == false)
+			if(maze[plyr.getrPos() + 1][plyr.getcPos() ].isRevealed == false)
 			{
-				maze[Jeff.getrPos() + 1][Jeff.getcPos() ].setRevealed(true);			
+				maze[plyr.getrPos() + 1][plyr.getcPos() ].setRevealed(true);			
 			}
 		}
 		else
 		{
-			Jeff.reposition(Jeff, maze, 1, 0);
+			plyr.reposition(plyr, maze, 1, 0);
 		}
 		}
 	else if (cord1.equalsIgnoreCase("d"))
 	{
-		if(Jeff.getcPos() == maze[Jeff.getrPos()].length - 1)
+		if(plyr.getcPos() == maze[plyr.getrPos()].length - 1)
 		{
 			System.out.println("BONK");
 		}
-		else if (maze[Jeff.getrPos()][Jeff.getcPos() + 1].isBorder || maze[Jeff.getrPos()][Jeff.getcPos() + 1].isWall)
+		else if (maze[plyr.getrPos()][plyr.getcPos() + 1].isBorder || maze[plyr.getrPos()][plyr.getcPos() + 1].isWall)
 		{
 			System.out.println("BONK");
-			if(maze[Jeff.getrPos()][Jeff.getcPos() + 1].isRevealed == false)
+			if(maze[plyr.getrPos()][plyr.getcPos() + 1].isRevealed == false)
 			{
-				maze[Jeff.getrPos()][Jeff.getcPos() + 1].setRevealed(true);			
+				maze[plyr.getrPos()][plyr.getcPos() + 1].setRevealed(true);			
 			}
 		}
 		else
 		{
-			Jeff.reposition(Jeff, maze, 0, 1);
+			plyr.reposition(plyr, maze, 0, 1);
 		}
 	}
 	}
