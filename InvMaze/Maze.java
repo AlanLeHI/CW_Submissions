@@ -88,7 +88,7 @@ public static void start()
 			maze[i][k] = new GameTile();
 		}
 	}
-	Player Jeff = new Player();
+	Player plyr = new Player();
 	/**
 	maze[0][0].setBorder(true);
 	maze[0][1].setBorder(true);
@@ -131,8 +131,8 @@ public static void start()
 	maze[1][5].setPoint(true);
 	*/
 	mazeCre(maze);
-	maze[Jeff.getrPos()][Jeff.getcPos()].setBorder(false);
-	maze[Jeff.getrPos()][Jeff.getcPos()].setHasPlayer(true);
+	maze[plyr.getrPos()][plyr.getcPos()].setBorder(false);
+	maze[plyr.getrPos()][plyr.getcPos()].setHasPlayer(true);
 	
 	System.out.println("ur lost enter WASD to move");
 	//welcomes the player I know it says tic-tac-toe but it's funny
@@ -140,14 +140,14 @@ public static void start()
 	//prints the board
 	printArr(maze);
 	//loop for the game
-	while (check(maze, Jeff))
+	while (check(maze, plyr))
 	{
 		//I know the if statement isn't necessary, but it's funnier
-		if(check(maze, Jeff))
+		if(check(maze, plyr))
 		{
-				if (check(maze, Jeff))
+				if (check(maze, plyr))
 				{
-					playerOne(Jeff);
+					playerOne(plyr);
 					printArr(maze);
 				}
 			}
@@ -156,10 +156,10 @@ public static void start()
 /**
  * It reads the input,  then moves the player
  */
-public static void playerOne(Player Jeff)
+public static void playerOne(Player plyr)
 {
 	//if the maze isn't solved go do this
-	if(check(maze, Jeff))
+	if(check(maze, plyr))
 	{
 		//reads input and makes sure it's 1 char
 		System.out.println("Player 1:");
@@ -169,12 +169,12 @@ public static void playerOne(Player Jeff)
 		{
 			//ask again if it doesn't work
 			System.out.println("Invalid: Try Again");
-			playerOne(Jeff);
+			playerOne(plyr);
 		}
 		//if it does, does a move
 		else
 		{
-			placer(input, true, Jeff);
+			placer(input, true, plyr);
 		}
 	}
 	
@@ -231,7 +231,7 @@ public static void placer(String cords, boolean player, Player plyr)
 		}
 		else
 		{
-			plyr.reposition(Jeff, maze, 0, -1);
+			plyr.reposition(plyr, maze, 0, -1);
 		}
 		}
 	else if (cord1.equalsIgnoreCase("s"))
@@ -292,27 +292,27 @@ public static void printArr(GameTile[][] board2)
 			//if border X
 			if (board2[i][k].isBorder())
 			{
-				System.out.print(" X ");
+				System.out.print(board2[i][k].toString());
 			}
 			//if player
 			else if (board2[i][k].isHasPlayer())
 			{
-				System.out.print(" 8 ");
+				System.out.print(board2[i][k].toString());
 			}
 			//if revealed wall
 			else if(board2[i][k].isRevealed() && board2[i][k].isWall())
 			{
-				System.out.print(" W ");
+				System.out.print(board2[i][k].toString());
 			}
 			//if revealed path
 			else if(board2[i][k].isRevealed())
 			{
-				System.out.print(" H ");
+				System.out.print(board2[i][k].toString());
 			}
 			//hidden stuff
 			else
 			{
-				System.out.print(" J ");
+				System.out.print(board2[i][k].toString());
 			}
 		}
 		//rows on next line
@@ -389,18 +389,18 @@ public static void mazeCre(GameTile[][] maze)
 	maze[maze.length - 1][maze[0].length - 1].setPoint(true);
 	maze[maze.length - 1][maze[0].length - 1].setWall(false);
 	//as long as there is an unsolveable maze it keeps running. If the maze is solveable, makes it false so it doesn't run
-	if(!comboBreak(0, 0, new ArrayList<int[]>()))
+	if(!pathfind(0, 0, new ArrayList<int[]>()))
 	{
 		mazeCre(maze);
 	}
 }
 
-public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
+public static boolean pathfind(int r, int c, ArrayList<int[]> list)
 {
 	//creates boolean to keep the loop running
-	boolean yippeee = false;
+	boolean path = false;
 	//first adds starting cords then new cords.
-	jefferson.add(new int[] {r,c});
+	list.add(new int[] {r,c});
 	if(r == maze.length - 1 && c == maze[0].length -1)
 	{
 		return true;
@@ -408,47 +408,47 @@ public static boolean comboBreak(int r, int c, ArrayList<int[]> jefferson)
 	//goes through every direction to check if it's possible, then goes through the path. If there's a path already taken
 	//it is added to the created arraylist
 	//left
-	if(c > 0 && !maze[r][c - 1].isWall && !imcooking(r,c - 1,jefferson) && !yippeee)
+	if(c > 0 && !maze[r][c - 1].isWall && !listMaker(r,c - 1,list) && !path)
 	{
 		//goes through the path
-		yippeee = comboBreak(r, c - 1, jefferson);
+		path = pathfind(r, c - 1, list);
 	}
 	//right
-	if(c < maze[r].length - 1 && !maze[r][c + 1].isWall && !imcooking(r, c + 1,jefferson) && !yippeee)
+	if(c < maze[r].length - 1 && !maze[r][c + 1].isWall && !listMaker(r, c + 1,list) && !path)
 	{
-		yippeee = comboBreak(r, c + 1, jefferson);
+		path = pathfind(r, c + 1, list);
 	}
 	//up
-	if(r > 0 && !maze[r - 1][c].isWall && !imcooking(r - 1, c,jefferson) && !yippeee)
+	if(r > 0 && !maze[r - 1][c].isWall && !listMaker(r - 1, c,list) && !path)
 	{
-		yippeee = comboBreak(r - 1, c, jefferson);
+		path = pathfind(r - 1, c, list);
 	}
 	//down
-	if(r < maze.length - 1 && !maze[r + 1][c].isWall && !imcooking(r + 1, c,jefferson)&& !yippeee)
+	if(r < maze.length - 1 && !maze[r + 1][c].isWall && !listMaker(r + 1, c,list)&& !path)
 	{
-		yippeee = comboBreak(r + 1, c, jefferson);
+		path = pathfind(r + 1, c, list);
 	}
-	return yippeee;
+	return path;
 }
 /**
  * checks if the path is already inside the arraylist passed
  * @param y
  * @param x
- * @param jefferson
+ * @param list
  * @return
  */
-public static boolean imcooking(int y, int x, ArrayList<int[]> jefferson)
+public static boolean listMaker(int y, int x, ArrayList<int[]> list)
 {
 	//the check
 	boolean flipper = false;
 	//looks through the entire arraylist
-	for (int i = 0; i < jefferson.size(); i++)
+	for (int i = 0; i < list.size(); i++)
 	{
-		for(int k = 0; k < jefferson.get(i).length; k++)
+		for(int k = 0; k < list.get(i).length; k++)
 		{
 			//if it exists, returns true
-			int[] jack = jefferson.get(i);
-			if(jack[0] == y && jack[1] == x)
+			int[] theList = list.get(i);
+			if(theList[0] == y && theList[1] == x)
 			{
 				flipper = true;
 			}
